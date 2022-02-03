@@ -13,10 +13,11 @@ const refs = {
 
 refs.buttonCreate.addEventListener("click", createBoxes);
 
-function createBoxes(amount) {
-  amount = refs.input.value;
+function createBoxes() {
+  const amount = refs.input.value;
   let counter = 30;
   const elements = [];
+
   for (let i = 0; i < amount; i += 1) {
     let newDiv = document.createElement("div");
     newDiv.style.backgroundColor = getRandomHexColor();
@@ -25,6 +26,7 @@ function createBoxes(amount) {
     counter += 10;
     elements.push(newDiv);
   }
+
   refs.divBoxes.append(...elements);
 }
 
