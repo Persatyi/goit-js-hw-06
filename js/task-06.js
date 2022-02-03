@@ -1,7 +1,17 @@
 const textInput = document.querySelector("#validation-input");
 
+const textInputData = Number(textInput.dataset.length);
+
 textInput.addEventListener("blur", () => {
-  if ("".length < 6) {
+  const textInputContentLength = textInput.value.length;
+  if (textInputContentLength !== textInputData) {
+    replaceClasses("invalid", "valid");
+    return;
   }
-  console.log(textInput);
+  replaceClasses("valid", "invalid");
 });
+
+const replaceClasses = (classToAdd, classToRemove) => {
+  textInput.classList.remove(classToRemove);
+  textInput.classList.add(classToAdd);
+};
